@@ -10,9 +10,9 @@ import (
 // Check if the value is empty
 func IsSettingEmpty(ev string) string {
 	s := os.Getenv(ev)
-	// For the rest fail if there is no value
-	if !DoesValueExists(ev) {
-		Fatalf("Mandatory parameter \"%s\" is missing from the environment variable", ev)
+	// Fail if there is no value for that environment variable
+	if !DoesValueExists(s) {
+		Fatalf("Mandatory parameter \"%s\" is missing from the environment variable or its empty", ev)
 	}
 	return s
 }
