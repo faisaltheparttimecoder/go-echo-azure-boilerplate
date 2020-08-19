@@ -52,14 +52,14 @@ func homeHandler(c echo.Context) error {
 
 // Handler: Restricted | Handler send to restricted page
 func restrictedHandler(c echo.Context) error {
-	Debugf("Publishing the home page")
+	Debugf("Publishing the restricted page")
 	t, _ := validateJwtToken(c)
 	return c.Render(http.StatusUnauthorized, "restricted.html", t.Claims)
 }
 
-// Handler: UnRestricted | Handles send to unrestricted page
+// Handler: UnRestricted | Handler send to unrestricted page
 func unrestrictedHandler(c echo.Context) error {
-	Debugf("Publishing the home page")
+	Debugf("Publishing the unrestricted page")
 	return c.Render(http.StatusUnauthorized, "unrestricted.html", "")
 }
 
